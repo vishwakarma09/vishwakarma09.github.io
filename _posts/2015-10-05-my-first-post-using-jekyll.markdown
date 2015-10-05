@@ -1,10 +1,11 @@
 ---
-title: This is my title
+title: A first start
 layout: post
 ---
 
 # some php code
 
+{% highlight php %}
 	for($i=0;$i<=10;$i++){
 			echo $rain[$i];
 	}
@@ -13,8 +14,9 @@ layout: post
 			echo $rain;
 	}
 
-## with some markdown
+{% endhighlight %}
 
+## with some markdown
 - one
 - two
 - three
