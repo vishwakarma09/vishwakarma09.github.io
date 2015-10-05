@@ -2,13 +2,14 @@
 title: Konoha
 email: kkumar.sandeep89@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+ A system admin, a programmer; turned into PHP developer for food; but always facinated
+ and intrigued by magical APIs running to support the front. Basketball player at school,
+ savvy enough to turn to manual pages since high-school, lover, self-taught
+ man with magical bits to share and to do	
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://vishwakarma09.github.io/" # the base hostname & protocol for your site
+twitter_username: kkumarsandeep89
+github_username:  vishwakarma09
 
 # Build settings
 markdown: kramdown
