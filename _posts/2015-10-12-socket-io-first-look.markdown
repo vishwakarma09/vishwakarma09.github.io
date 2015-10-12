@@ -9,7 +9,7 @@ Hi friends,
 
 I saw a project on freelancer and that wanted to see phonegap and socket.io in action. I put on my thinking cap and started exploring. Socket.io is a beautifully brewed concept where sockets are used for transport. 
 
-## Namespaces
+# Namespaces
 
 There are namespaces, which you can create and the client will connect to that. 
 
@@ -27,7 +27,7 @@ io.on('connection', function(socket){
 });
 {% endhighlight %}
 
-## Rooms
+# Rooms
 
 Also, sockets can be put in channels. When an socket is initialized, it is part of a room which is equal to its socket id.
 
@@ -45,7 +45,7 @@ io.to('some room').emit('some event'):
 
 To leave a channel you call *leave* in the same fashion as *join*.
 
-## Default room
+# Default room
 
 Each *Socket* in Socket.IO is identified by a random, unguessable, unique identifier *Socket#id*. For your convenience, each socket automatically joins a room identified by this id.
 
@@ -59,7 +59,7 @@ io.on('connection', function(socket){
 });
 {% endhighlight %}
 
-## Disconnection
+# Disconnection
 
 Upon disconnection, sockets *leave* all the channels they were part of automatically, and no specially teardown is needed on your part.
 
