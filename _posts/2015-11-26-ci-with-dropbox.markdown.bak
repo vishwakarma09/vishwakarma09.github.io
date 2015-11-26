@@ -42,6 +42,5 @@ mklink /d "path\destination\symlink" "path\to\source"
 #Credits
 
 https://www.dropbox.com/install?os=lnx
-
 https://www.dropbox.com/en/help/12
 
