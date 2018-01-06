@@ -1,0 +1,12 @@
+---
+title: Socket.io first look
+layout: post
+---
+
+# Happy new year 2018
+
+Hi friends,
+
+been a long time since I wrote. On this new year went to Gurdware to get blessings of god. Hope to write blogs this year.
+
+Cheers!
