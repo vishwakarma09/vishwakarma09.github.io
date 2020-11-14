@@ -2,10 +2,11 @@
 title: Konoha
 email: kkumar.sandeep89@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
- A system admin, a programmer; turned into PHP developer for food; but always facinated
+ A system admin, a programmer; turned into PHP developer; but always facinated
  and intrigued by magical APIs running to support the front. Basketball player at school,
  savvy enough to turn to manual pages since high-school, lover, self-taught
  man with magical bits to share and to do	
+ A new chapter starts with javascript, and I am <3ng it!
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://vishwakarma09.github.io/" # the base hostname & protocol for your site
 twitter_username: kkumarsandeep89
