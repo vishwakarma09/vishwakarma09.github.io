@@ -1,0 +1,18 @@
+---
+title: content hub project
+layout: post
+---
+
+# Content Hub
+
+Project to share files like Google drive.
+
+##GitHub links:
+
+[API](https://github.com/vishwakarma09/content_hub_api) written in Laravel 11.x, using laravel/sanctum, kalnoy/nestedset
+[Infra](https://github.com/vishwakarma09/content_hub_infra) Docker compose
+[FrontEnd](https://github.com/vishwakarma09/content_hub_frontend) Written in Vue 3 using Tailwind, DaiseyUI, PrimeVue and pinia for state management
+
+##Demo:
+<iframe allowfullscreen="allowfullscreen" src="https://drive.google.com/file/d/1WW8f302xrRK1iFyM8DrAcW6VWQ5IMyc2/view"></iframe>
+
