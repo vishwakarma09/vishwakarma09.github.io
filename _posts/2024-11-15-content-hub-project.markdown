@@ -3,11 +3,11 @@ title: content hub project
 layout: post
 ---
 
-### Content Hub
+# Content Hub
 
 Project to share files like Google drive.
 
-##GitHub links:
+## GitHub links:
 
 [API](https://github.com/vishwakarma09/content_hub_api) written in Laravel 11.x, using laravel/sanctum, kalnoy/nestedset
 [Infra](https://github.com/vishwakarma09/content_hub_infra) Docker compose
