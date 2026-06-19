@@ -187,6 +187,19 @@ graph TD
 
 ---
 
+## 🌐 The Hosted Platform & SaaS Benefits
+
+While the application is fully open-source and easy to self-host, you can access the pre-configured, production-ready version directly at **[AI Job Apply Hosted Platform](https://jobapplyai.owera.ca/)**.
+
+### Why use the hosted version?
+*   **Zero Configuration:** Skip setting up Docker, PostgreSQL with pgvector, Redis, and local development environments. Simply sign up and begin applying.
+*   **Built-in LLM Power:** No need to register for Cerebras API keys or set up local endpoints. The hosted service handles model configurations and token limits out-of-the-box.
+*   **Cross-Device Sync:** Your RAG knowledge base, uploaded resumes, tailored cover letters, and Kanban tracking state sync automatically across all browsers and devices.
+*   **Continuous Updates:** Job board structures change constantly. The hosted version is continuously updated to patch DOM selectors and iframe traversal scripts as platforms roll out UI updates.
+*   **Reliable Cloud Storage:** Your complete application history, parsed resume details, and custom cover letters are backed up securely in the cloud.
+
+---
+
 ## 🚀 How to Try it Out
 
 The project is fully dockerized and ready for local development:
