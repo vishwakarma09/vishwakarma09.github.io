@@ -19,19 +19,33 @@ layout: default
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     // Convert Jekyll kramdown mermaid code blocks to standard <div class="mermaid">
-    const containers = document.querySelectorAll('.language-mermaid');
-    containers.forEach(function(container) {
-      const codeElement = container.querySelector('code');
-      if (codeElement) {
-        const div = document.createElement('div');
-        div.className = 'mermaid';
-        div.textContent = codeElement.innerText;
-        container.parentNode.replaceChild(div, container);
+    const codeElements = document.querySelectorAll('code.language-mermaid, div.language-mermaid');
+    codeElements.forEach(function(codeEl) {
+      let targetToReplace = codeEl;
+      
+      // If code element is inside a pre, target the pre or outer divs
+      if (codeEl.tagName === 'CODE' && codeEl.parentElement && codeEl.parentElement.tagName === 'PRE') {
+        targetToReplace = codeEl.parentElement;
+        const highlightDiv = targetToReplace.parentElement;
+        if (highlightDiv && highlightDiv.classList.contains('highlight')) {
+          const rougeDiv = highlightDiv.parentElement;
+          if (rougeDiv && rougeDiv.classList.contains('highlighter-rouge')) {
+            targetToReplace = rougeDiv;
+          } else {
+            targetToReplace = highlightDiv;
+          }
+        }
       }
+      
+      const div = document.createElement('div');
+      div.className = 'mermaid';
+      // Use textContent to get clean raw string without HTML entities
+      div.textContent = codeEl.textContent || codeEl.innerText;
+      targetToReplace.parentNode.replaceChild(div, targetToReplace);
     });
     
     if (typeof mermaid !== 'undefined') {
-      mermaid.initialize({ startOnLoad: true });
+      mermaid.initialize({ startOnLoad: true, theme: 'default' });
       mermaid.init(undefined, '.mermaid');
     }
   });
