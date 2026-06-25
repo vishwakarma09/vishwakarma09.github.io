@@ -287,6 +287,13 @@ graph TD
 
 ---
 
+## 🌐 Try Out the Live Demo
+
+You can interact with the live broker dashboard and test the automated competitive bidding rounds here:
+👉 **[Freight Agent AWS Live Demo](http://freight-agent-frontend-dev-865122443732.s3-website.us-east-2.amazonaws.com)**
+
+---
+
 ## 🚀 How to Deploy the Serverless Stack
 
 The stack is configured to deploy directly to AWS using the **Serverless Framework (v3)**.
