@@ -36,40 +36,40 @@ Here is how the automated workflow operates when an inquiry arrives:
 
 ```mermaid
 flowchart TD
-    Customer[Customer Email] -->|inbound email| Mailbox[Mailpit / Gmail Inbox]
-    Mailbox -->|webhook / polling| Ingestion[Intake Service]
+    Customer["Customer Email"] -->|inbound email| Mailbox["Mailpit / Gmail Inbox"]
+    Mailbox -->|webhook / polling| Ingestion["Intake Service"]
     
-    subgraph Backend [FastAPI Application]
-        Ingestion -->|1. Parse Email| LLM[Cerebras LLM Service]
-        LLM -->|Extract parameters| DB[(PostgreSQL + pgvector)]
+    subgraph Backend ["FastAPI Application"]
+        Ingestion -->|1. Parse Email| LLM["Cerebras LLM Service"]
+        LLM -->|Extract parameters| DB[("PostgreSQL + pgvector")]
         
-        DB -->|2. RAG Query| RAG[Embedding & Historical RAG]
-        RAG -->|Lane benchmark| Orchestrator[Workflow Orchestrator]
+        DB -->|2. RAG Query| RAG["Embedding & Historical RAG"]
+        RAG -->|Lane benchmark| Orchestrator["Workflow Orchestrator"]
         
-        Orchestrator -->|3. Status OUT_TO_CARRIERS| Outbound[SMTP Service]
-        Outbound -->|RFQ Email| Carriers[Carriers Network]
+        Orchestrator -->|3. Status OUT_TO_CARRIERS| Outbound["SMTP Service"]
+        Outbound -->|RFQ Email| Carriers["Carriers Network"]
         
-        Carriers -->|4. Submit Bids| BidIngestion[Bid Parser]
+        Carriers -->|4. Submit Bids| BidIngestion["Bid Parser"]
         BidIngestion -->|Record Bids| DB
         
-        Orchestrator -->|5. Status RE_BID_ROUND| Rebid[Best & Final Trigger]
+        Orchestrator -->|5. Status RE_BID_ROUND| Rebid["Best & Final Trigger"]
         Rebid -->|Cheapest rate notification| Outbound
         
-        Orchestrator -->|6. Status QUOTE_SENT| Markup[Markup Engine]
-        Markup -->|Apply Customer rules| CustProposal[Customer Quote Compose]
+        Orchestrator -->|6. Status QUOTE_SENT| Markup["Markup Engine"]
+        Markup -->|Apply Customer rules| CustProposal["Customer Quote Compose"]
         CustProposal -->|Customer Proposal Email| Customer
         
-        Customer -->|7. Approved| WorkflowApprove[Booking Logic]
-        Customer -->|7. Rejected| WorkflowReject[Loss Logger]
+        Customer -->|7. Approved| WorkflowApprove["Booking Logic"]
+        Customer -->|7. Rejected| WorkflowReject["Loss Logger"]
         
         WorkflowApprove -->|Proceed Booking| Outbound
-        WorkflowApprove -->|BOL generation| BOLService[BOL & PandaDoc Service]
+        WorkflowApprove -->|BOL generation| BOLService["BOL & PandaDoc Service"]
         BOLService -->|Draft PandaDoc invoice| DB
     end
     
-    subgraph Frontend [React Vite Client]
-        UI[Web Dashboard] -->|Get pipeline stats / Trigger mock actions| Backend
-        UI -->|Pipeline Kanban Board| Broker[Freight Broker]
+    subgraph Frontend ["React Vite Client"]
+        UI["Web Dashboard"] -->|Get pipeline stats / Trigger mock actions| Backend
+        UI -->|Pipeline Kanban Board| Broker["Freight Broker"]
         UI -->|Analytics Center| Broker
         UI -->|Invoice Ledger| Broker
     end
@@ -257,8 +257,8 @@ graph TD
     end
 
     subgraph DataStore ["Database & Storage"]
-        DB[(Amazon RDS Postgres)]
-        S3Bucket[(S3 Attachments Bucket)]
+        DB[("Amazon RDS Postgres")]
+        S3Bucket[("S3 Attachments Bucket")]
     end
 
     %% Interactions
