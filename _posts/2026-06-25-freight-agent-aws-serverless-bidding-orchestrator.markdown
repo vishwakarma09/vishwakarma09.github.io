@@ -235,28 +235,28 @@ Here is the architectural anatomy of how the email connector interacts with exte
 
 ```mermaid
 graph TD
-    subgraph EmailServer ["Email Server / Sandbox (Gmail / Mailpit)"]
-        Mailbox["Broker's Mailbox"]
-        SMTPHost["SMTP Server (Port 587/1025)"]
-        IMAPHost["IMAP Server (Port 993/143)"]
+    subgraph EmailServer ["Email Server or Sandbox"]
+        Mailbox["Broker Mailbox"]
+        SMTPHost["SMTP Server"]
+        IMAPHost["IMAP Server"]
     end
 
     subgraph ConnectorAnatomy ["Email Connector Anatomy"]
-        subgraph InboundFlow ["Inbound Connector (IMAP Client)"]
+        subgraph InboundFlow ["Inbound Connector IMAP"]
             IMAPPoller["IMAP Client Poller"]
-            EmailParser["MIME parser (email.message)"]
-            RegexRouter["Regex ID Extractor (Q-XXXX)"]
-            LLMParser["Cerebras AI Parser (Llama 3.1)"]
+            EmailParser["MIME Parser"]
+            RegexRouter["Regex ID Extractor"]
+            LLMParser["Cerebras AI Parser"]
             WorkflowRouter["Workflow Transition Engine"]
         end
 
-        subgraph OutboundFlow ["Outbound Connector (SMTP Client)"]
+        subgraph OutboundFlow ["Outbound Connector SMTP"]
             SMTPSender["SMTP Client Sender"]
             HTMLComposer["HTML Email Composer"]
         end
     end
 
-    subgraph DataStore ["Database & Storage"]
+    subgraph DataStore ["Database and Storage"]
         DB[("Amazon RDS Postgres")]
         S3Bucket[("S3 Attachments Bucket")]
     end
@@ -266,16 +266,16 @@ graph TD
     IMAPPoller --> EmailParser
     EmailParser --> RegexRouter
     RegexRouter -->|Quote ID matched| WorkflowRouter
-    RegexRouter -->|No Quote ID (New Inquiry)| LLMParser
+    RegexRouter -->|No Quote ID| LLMParser
     LLMParser -->|Extracts lane metadata| WorkflowRouter
     
-    WorkflowRouter -->|Save quotes/bids| DB
-    EmailParser -->|Extract PDF BOL/Attachments| S3Bucket
+    WorkflowRouter -->|Save quotes and bids| DB
+    EmailParser -->|Extract PDF BOL and Attachments| S3Bucket
 
     HTMLComposer -->|Generates HTML payload| SMTPSender
     SMTPSender -->|Sends SMTP traffic| SMTPHost
     
-    DB -->|Trigger RFQ/Proposal| HTMLComposer
+    DB -->|Trigger RFQ or Proposal| HTMLComposer
 ```
 
 ### Connector Operations:
